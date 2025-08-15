@@ -1,0 +1,24 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8000,
+    "read_timeout": "30s",
+    "write_timeout": "30s",
+    "max_header_bytes": 1048576
+  },
+  "aws": {
+    "access_key_id": "",
+    "secret_access_key": "",
+    "region": "us-west-2",
+    "max_retries": 3,
+    "timeout": "30s"
+  },
+  "cache": {
+    "cleanup_interval": "5m"
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "output": "stdout"
+  }
+}
