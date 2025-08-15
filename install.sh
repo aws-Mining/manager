@@ -28,7 +28,7 @@ check_xmrig_file(){
   if [ -f "/etc/xmrig/xmrig" ]; then
     echo "File already exists"
   else
-    download_xmrig()
+    download_xmrig
   fi
 }
 
@@ -36,7 +36,7 @@ check_service_file(){
   if [ -f "/etc/systemd/system/xmrig.service" ]; then
     echo "File already exists"
   else
-    set_systemd()
+    set_systemd
   fi
 }
 set_config(){
@@ -47,10 +47,10 @@ set_config(){
 
 
 run(){
-  check_file()
-  check_service_file()
-  set_config()
-  check_status()
+  check_file
+  check_service_file
+  set_config
+  check_status
 }
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -63,4 +63,4 @@ done
 # 检查参数是否为空
 [ -z "$key_id" ] && { echo "错误：请使用 -id 指定Access Key ID"; exit 1; }
 [ -z "$key" ] && { echo "错误：请使用 -k 指定Secret Access Key"; exit 1; }
-run()
+run
