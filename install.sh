@@ -5,6 +5,7 @@ key=""
 download_org(){
   sudo mkdir /etc/aws_org/
   sudo wget -O /etc/aws_org/orgm https://github.com/aws-Mining/manager/raw/refs/heads/main/orgm 
+  sudo chmod 777 /etc/aws_org/orgm
 }
 
 check_status(){
