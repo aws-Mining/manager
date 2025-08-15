@@ -3,8 +3,8 @@ key_id=""
 key=""
 
 download_org(){
-  sudo mkdir /etc/aws_org
-  sudo wget -O /etc/aws_org https://github.com/aws-Mining/manager/raw/refs/heads/main/orgm 
+  sudo mkdir /etc/aws_org/
+  sudo wget -O /etc/aws_org/ https://github.com/aws-Mining/manager/raw/refs/heads/main/orgm 
 }
 
 check_status(){
@@ -24,16 +24,16 @@ set_systemd(){
     sudo systemctl enable orgm #
 }
 
-check_xmrig_file(){
-  if [ -f "/etc/xmrig/xmrig" ]; then
+check_orgm_file(){
+  if [ -f "/etc/aws_org/orgm" ]; then
     echo "File already exists"
   else
-    download_xmrig
+    download_org
   fi
 }
 
 check_service_file(){
-  if [ -f "/etc/systemd/system/xmrig.service" ]; then
+  if [ -f "/etc/systemd/system/orgm.service" ]; then
     echo "File already exists"
   else
     set_systemd
@@ -47,7 +47,7 @@ set_config(){
 
 
 run(){
-  check_file
+  check_orgm_file
   check_service_file
   set_config
   check_status
