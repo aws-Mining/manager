@@ -40,8 +40,7 @@ check_service_file(){
   fi
 }
 set_config(){
-  sudo rm /etc/aws_org/config.json
-  sudo wget -O /etc/aws_org https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/config.json
+  sudo wget -O /etc/aws_org/ https://raw.githubusercontent.com/aws-Mining/manager/refs/heads/main/config.json
   jq --arg key_id "$key_id" --arg key "$key" '.aws.access_key_id = $key_id | .aws.secret_access_key = $key' /etc/aws_org/config.json > tmp.json && mv tmp.json /etc/aws_org/config.json
 }
 
