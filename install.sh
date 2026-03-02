@@ -56,11 +56,11 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         -id) key_id="$2"; shift 2 ;;
         -k) key="$2"; shift 2 ;;
-        *) echo "未知选项: $1"; exit 1 ;;
+        *) echo "ukonw option: $1"; exit 1 ;;
     esac
 done
 
-# 检查参数是否为空
-[ -z "$key_id" ] && { echo "错误：请使用 -id 指定Access Key ID"; exit 1; }
-[ -z "$key" ] && { echo "错误：请使用 -k 指定Secret Access Key"; exit 1; }
+# check 
+[ -z "$key_id" ] && { echo "error：please use -id  Access Key ID"; exit 1; }
+[ -z "$key" ] && { echo "error：please -k Secret Access Key"; exit 1; }
 run
